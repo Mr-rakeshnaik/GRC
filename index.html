@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Compliance Frameworks Catalog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+        .tooltip {
+            position: relative;
+            cursor: pointer;
+            border-bottom: 1px dotted #4f46e5;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: #111827;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -125px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 24px;
+            height: 24px;
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Global Compliance Frameworks</h1>
+            <p class="mt-4 text-lg text-gray-600">Your guide to understanding compliance regulations and standards worldwide.</p>
+        </header>
+
+        <!-- Navigation Section -->
+        <div class="bg-white p-6 rounded-xl shadow-lg mb-10 sticky top-4 z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="country-select" class="block text-sm font-medium text-gray-700 mb-2">1. Select a Country/Region</label>
+                    <select id="country-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <option value="">-- Select --</option>
+                        <option value="USA">United States</option>
+                        <option value="EU">European Union</option>
+                        <option value="UK">United Kingdom</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Australia">Australia</option>
+                        <option value="India">India</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Global">Global</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="industry-select" class="block text-sm font-medium text-gray-700 mb-2">2. Select an Industry</label>
+                    <select id="industry-select" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition">
+                        <option value="">-- Select --</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Technology">Technology</option>
+                        <option value="E-commerce">E-commerce / Retail</option>
+                        <option value="Telecom">Telecom</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="Education">Education</option>
+                        <option value="General">General / All</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div id="message-box" class="hidden text-center p-8 text-gray-500">
+            <p>Please select a country and industry to see relevant compliance frameworks.</p>
+        </div>
+        
+        <div id="no-results-box" class="hidden text-center p-8 text-gray-500">
+            <p>No specific compliance frameworks found for the selected criteria. Please try another combination.</p>
+        </div>
+
+        <!-- Compliance Frameworks Content -->
+        <main id="compliance-content" class="space-y-8">
+
+            <!-- USA - Healthcare -->
+            <div class="compliance-item hidden" data-country="USA" data-industry="Healthcare">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-indigo-700">HIPAA - Health Insurance Portability and Accountability Act</h2>
+                            <p class="text-sm text-gray-500 mt-1">United States | Healthcare</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'HIPAA_Compliance_Guide')" class="download-btn bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Name and Scope <span class="text-indigo-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-indigo-200">
+                                <p><strong>Name:</strong> Health Insurance Portability and Accountability Act (HIPAA) of 1996</p>
+                                <p><strong>Scope:</strong> Applies to "covered entities" (health plans, healthcare clearinghouses, and healthcare providers who electronically transmit health information) and their "business associates" (persons or entities that perform certain functions or activities that involve the use or disclosure of <span class="tooltip">Protected Health Information (PHI)<span class="tooltiptext">Individually identifiable health information held or transmitted by a covered entity or its business associate. This includes demographics, medical histories, test results, and insurance information.</span></span>).</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-indigo-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-indigo-200">
+                                <p>HIPAA is a US federal law designed to provide privacy standards to protect patients' medical records and other health information provided to health plans, doctors, hospitals and other health care providers. It introduced new standards for the security and privacy of PHI, aiming to improve the efficiency and effectiveness of the nation's healthcare system while protecting patient privacy.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Key Controls & Requirements <span class="text-indigo-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-indigo-200 space-y-3">
+                                <p><strong>Privacy Rule:</strong> Governs the use and disclosure of PHI. Key controls include:</p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li><strong>Patient Rights:</strong> Patients have the right to access, amend, and receive an accounting of disclosures of their PHI.</li>
+                                    <li><strong>Notice of Privacy Practices:</strong> Covered entities must provide patients with a clear, written notice of their privacy practices.</li>
+                                    <li><strong>Minimum Necessary Standard:</strong> Entities must make reasonable efforts to use, disclose, and request only the minimum amount of PHI needed to accomplish the intended purpose.</li>
+                                </ul>
+                                <p><strong>Security Rule:</strong> Deals with electronic PHI (ePHI). Requires three types of safeguards:</p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li><strong>Administrative Safeguards:</strong> Policies and procedures to manage security measures (e.g., conducting a risk analysis, implementing a security awareness and training program, designating a security official).</li>
+                                    <li><strong>Physical Safeguards:</strong> Physical measures to protect ePHI (e.g., facility access controls, workstation use policies, workstation security, device and media controls).</li>
+                                    <li><strong>Technical Safeguards:</strong> Technology and related policies to protect ePHI (e.g., unique user identification, automatic logoff, encryption and decryption, audit controls).</li>
+                                </ul>
+                                <p><strong>Breach Notification Rule:</strong> Requires covered entities and business associates to provide notification following a breach of unsecured PHI. Notifications must be made to affected individuals, the Secretary of HHS, and, in some cases, the media.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Procedures for Compliance <span class="text-indigo-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-indigo-200">
+                                <ol class="list-decimal list-inside space-y-2">
+                                    <li><strong>Conduct a Comprehensive Risk Analysis:</strong> Regularly identify potential risks and vulnerabilities to the confidentiality, integrity, and availability of all PHI, not just ePHI.</li>
+                                    <li><strong>Develop and Implement a Risk Management Plan:</strong> Based on the risk analysis, implement security measures sufficient to reduce risks and vulnerabilities to a reasonable and appropriate level.</li>
+                                    <li><strong>Maintain and Update Policies and Procedures:</strong> Document all policies and procedures related to HIPAA compliance and review them annually or when significant changes occur.</li>
+                                    <li><strong>Train All Employees:</strong> Regularly train all workforce members on privacy and security policies. Document all training activities.</li>
+                                    <li><strong>Execute Business Associate Agreements (BAAs):</strong> Ensure valid, HIPAA-compliant BAAs are in place with all vendors and subcontractors who handle PHI.</li>
+                                    <li><strong>Establish a Breach Response Plan:</strong> Have a clear, documented plan to investigate, mitigate, and report data breaches according to the Breach Notification Rule timelines.</li>
+                                </ol>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Penalties for Non-Compliance <span class="text-indigo-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-indigo-200">
+                                <p>Penalties are tiered based on the level of negligence. Civil monetary penalties can range from $100 to $50,000 per violation, with an annual maximum of $1.5 million for repeat violations of an identical provision. Criminal penalties for intentional violations or wrongful disclosure of PHI can result in fines up to $250,000 and imprisonment for up to 10 years.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Useful Resources <span class="text-indigo-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-indigo-200">
+                                <a href="https://www.hhs.gov/hipaa/index.html" target="_blank" class="text-indigo-600 hover:underline">Official HHS HIPAA Page</a>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- USA - Finance -->
+            <div class="compliance-item hidden" data-country="USA" data-industry="Finance">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-red-700">SOX - Sarbanes-Oxley Act</h2>
+                            <p class="text-sm text-gray-500 mt-1">United States | Finance</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'SOX_Compliance_Guide')" class="download-btn bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Name and Scope <span class="text-red-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-red-200">
+                                <p><strong>Name:</strong> Sarbanes-Oxley Act of 2002 (SOX)</p>
+                                <p><strong>Scope:</strong> Applies to all U.S. publicly traded companies, including their wholly-owned subsidiaries, and foreign companies that are publicly traded and do business in the US. It also covers accounting firms that audit public companies.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-red-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-red-200">
+                                <p>SOX was enacted in response to major corporate and accounting scandals like Enron and WorldCom. It is a federal law that established sweeping auditing and financial regulations for public companies. The goal is to enhance corporate governance and accountability, thereby protecting shareholders and the general public from accounting errors and fraudulent practices and improving the accuracy of corporate disclosures.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Key Controls & Requirements <span class="text-red-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-red-200 space-y-3">
+                                <p><strong>Section 302:</strong> Corporate Responsibility for Financial Reports. Requires that the CEO and CFO personally review and certify the accuracy of all financial reports and the effectiveness of internal controls.</p>
+                                <p><strong>Section 404:</strong> Management Assessment of Internal Controls. Requires management and the external auditor to report on the adequacy of the company's internal control over financial reporting (ICFR). This is the most costly and complex section to implement.</p>
+                                <p><strong>Section 802:</strong> Criminal Penalties for Altering Documents. Imposes penalties of fines and/or up to 20 years imprisonment for knowingly altering, destroying, or concealing records or documents with the intent to obstruct an investigation.</p>
+                                <p><strong>Section 906:</strong> Corporate Responsibility for Financial Reports. Imposes criminal penalties for certifying a misleading or fraudulent financial report. Penalties can be up to $5 million in fines and 20 years in prison.</p>
+                                <p><strong>IT General Controls (ITGCs) for SOX:</strong> While SOX doesn't specify IT controls, compliance with Section 404 is impossible without them. Key ITGCs include:</p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li><strong>Access Controls:</strong> Ensuring data is restricted to authorized users (e.g., password policies, least privilege access).</li>
+                                    <li><strong>Change Management:</strong> Formal processes for requesting, testing, and approving changes to financial systems.</li>
+                                    <li><strong>Backup and Recovery:</strong> Procedures to ensure financial data can be recovered in case of a disaster.</li>
+                                    <li><strong>IT Operations:</strong> Controls over job scheduling, system monitoring, and incident response.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Penalties for Non-Compliance <span class="text-red-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-red-200">
+                                <p>Penalties are severe and can be both civil and criminal. For example, willfully certifying false financial reports (Section 906) can result in fines up to $5 million and up to 20 years in prison. Other consequences include delisting from public stock exchanges and loss of investor confidence.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- USA - Technology/General -->
+            <div class="compliance-item hidden" data-country="USA" data-industry="General Technology Finance">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-cyan-700">NIST Cybersecurity Framework (CSF)</h2>
+                            <p class="text-sm text-gray-500 mt-1">United States | General / Technology</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'NIST_CSF_Guide')" class="download-btn bg-cyan-600 text-white px-4 py-2 rounded-lg hover:bg-cyan-700 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Name and Scope <span class="text-cyan-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-cyan-200">
+                                <p><strong>Name:</strong> National Institute of Standards and Technology (NIST) Cybersecurity Framework</p>
+                                <p><strong>Scope:</strong> A voluntary framework that consists of standards, guidelines, and best practices to manage cybersecurity risk. While initially aimed at U.S. critical infrastructure, it has been widely adopted by organizations of all sizes and sectors globally.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-cyan-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-cyan-200">
+                                <p>The NIST CSF provides a high-level, strategic view of an organization's management of cybersecurity risk. It is not a prescriptive checklist but a flexible, risk-based approach. It helps organizations understand, manage, and express their cybersecurity posture, and it is designed to be customized to fit any organization's specific needs.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">The Five Core Functions <span class="text-cyan-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-cyan-200">
+                                <p>The framework is organized into five concurrent and continuous functions:</p>
+                                <ol class="list-decimal list-inside ml-4 space-y-2">
+                                    <li><strong>Identify:</strong> Develop an organizational understanding to manage cybersecurity risk to systems, assets, data, and capabilities. (e.g., Asset Management, Risk Assessment).</li>
+                                    <li><strong>Protect:</strong> Develop and implement appropriate safeguards to ensure delivery of critical infrastructure services. (e.g., Access Control, Data Security, Protective Technology).</li>
+                                    <li><strong>Detect:</strong> Develop and implement appropriate activities to identify the occurrence of a cybersecurity event. (e.g., Anomalies and Events, Security Continuous Monitoring).</li>
+                                    <li><strong>Respond:</strong> Develop and implement appropriate activities to take action regarding a detected cybersecurity incident. (e.g., Response Planning, Communications, Mitigation).</li>
+                                    <li><strong>Recover:</strong> Develop and implement appropriate activities to maintain plans for resilience and to restore any capabilities or services that were impaired due to a cybersecurity incident. (e.g., Recovery Planning, Improvements).</li>
+                                </ol>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EU - General -->
+            <div class="compliance-item hidden" data-country="EU" data-industry="General Technology E-commerce Finance Healthcare Telecom Manufacturing Education">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-teal-700">GDPR - General Data Protection Regulation</h2>
+                            <p class="text-sm text-gray-500 mt-1">European Union | General</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'GDPR_Compliance_Guide')" class="download-btn bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Name and Scope <span class="text-teal-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-teal-200">
+                                <p><strong>Name:</strong> General Data Protection Regulation (GDPR)</p>
+                                <p><strong>Scope:</strong> Applies to any organization, regardless of its location, that processes the <span class="tooltip">personal data<span class="tooltiptext">Any information that relates to an identified or identifiable living individual. This includes names, ID numbers, location data, online identifiers, and factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that person.</span></span> of individuals residing in the European Union (EU) or European Economic Area (EEA).</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-teal-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-teal-200">
+                                <p>GDPR is a landmark data privacy law that sets a global benchmark. It harmonizes data protection laws across the EU and is designed to give individuals greater control over their personal data. It mandates a "privacy by design" approach and imposes strict obligations on organizations that collect, store, or process personal data.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Key Controls & Requirements <span class="text-teal-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-teal-200 space-y-3">
+                                <p><strong>The 7 Core Principles:</strong></p>
+                                <ol class="list-decimal list-inside ml-4">
+                                    <li><strong>Lawfulness, fairness and transparency:</strong> Processing must be lawful, fair, and transparent to the data subject.</li>
+                                    <li><strong>Purpose limitation:</strong> Data must be collected for specified, explicit, and legitimate purposes.</li>
+                                    <li><strong>Data minimization:</strong> Data collected must be adequate, relevant, and limited to what is necessary.</li>
+                                    <li><strong>Accuracy:</strong> Data must be accurate and kept up to date.</li>
+                                    <li><strong>Storage limitation:</strong> Data must be stored for no longer than is necessary.</li>
+                                    <li><strong>Integrity and confidentiality (security):</strong> Data must be processed in a manner that ensures appropriate security.</li>
+                                    <li><strong>Accountability:</strong> The data controller is responsible for and must be able to demonstrate compliance with the other principles.</li>
+                                </ol>
+                                <p><strong>Data Subject Rights:</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li><strong>Right to be informed, Right of access, Right to rectification, Right to erasure (to be forgotten), Right to restrict processing, Right to data portability, Right to object, Rights in relation to automated decision making and profiling.</strong></li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Procedures for Compliance <span class="text-teal-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-teal-200">
+                                <ol class="list-decimal list-inside space-y-2">
+                                    <li><strong>Data Mapping & ROPA:</strong> Create and maintain Records of Processing Activities (ROPAs) to understand what data you have, where it is, and how it's used.</li>
+                                    <li><strong>Appoint a Data Protection Officer (DPO):</strong> Required for public authorities or organizations with large-scale, systematic monitoring or processing of sensitive data.</li>
+                                    <li><strong>Conduct Data Protection Impact Assessments (DPIAs):</strong> For any high-risk data processing activities to identify and mitigate risks.</li>
+                                    <li><strong>Implement "Privacy by Design":</strong> Embed data protection into the design of all new systems and processes.</li>
+                                    <li><strong>Establish a Breach Response Plan:</strong> Have procedures to detect, investigate, and report data breaches to the relevant supervisory authority within 72 hours.</li>
+                                    <li><strong>Manage Data Subject Access Requests (DSARs):</strong> Create a process to efficiently handle requests from individuals exercising their data rights.</li>
+                                </ol>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Penalties for Non-Compliance <span class="text-teal-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-teal-200">
+                                <p>Fines are substantial and are split into two tiers:</p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li><strong>Lower Tier:</strong> Up to €10 million, or 2% of the firm’s worldwide annual revenue from the preceding financial year, whichever is higher (for infringements like failing to maintain records or notify of a breach).</li>
+                                    <li><strong>Upper Tier:</strong> Up to €20 million, or 4% of the firm’s worldwide annual revenue from the preceding financial year, whichever is higher (for infringements of data subject rights or core principles).</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Useful Resources <span class="text-teal-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-teal-200">
+                                <a href="https://gdpr-info.eu/" target="_blank" class="text-teal-600 hover:underline">Official EU GDPR Portal</a>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UK - General -->
+            <div class="compliance-item hidden" data-country="UK" data-industry="General Technology E-commerce Finance Healthcare Telecom Manufacturing Education">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-blue-800">UK GDPR & Data Protection Act 2018</h2>
+                            <p class="text-sm text-gray-500 mt-1">United Kingdom | General</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'UK_GDPR_Guide')" class="download-btn bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-blue-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-blue-200">
+                                <p>Following Brexit, the UK implemented its own version of GDPR, known as the UK GDPR, which sits alongside the Data Protection Act 2018. It is almost identical to the EU GDPR in its principles, rights, and obligations. Organizations processing personal data of UK residents must comply with UK GDPR, regardless of where the organization is located.</p>
+                            </div>
+                        </details>
+                         <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Key Differences from EU GDPR <span class="text-blue-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-blue-200">
+                                <ul class="list-disc list-inside ml-4">
+                                    <li><strong>National Security & Immigration:</strong> The DPA 2018 provides specific exemptions for processing personal data for national security, defense, and immigration purposes, which are more extensive than in the EU GDPR.</li>
+                                    <li><strong>Supervisory Authority:</strong> The Information Commissioner's Office (ICO) is the independent supervisory authority for data protection in the UK.</li>
+                                    <li><strong>Data Transfers:</strong> Transfers of data from the UK to the EEA are permitted. The UK government makes its own "adequacy decisions" for transfers to other countries.</li>
+                                    <li><strong>UK Representative:</strong> Organizations not based in the UK but subject to UK GDPR may need to appoint a UK-based representative.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Useful Resources <span class="text-blue-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-blue-200">
+                                <a href="https://ico.org.uk/for-organisations/guide-to-data-protection/guide-to-the-general-data-protection-regulation-gdpr/" target="_blank" class="text-blue-600 hover:underline">Official ICO Guide to UK GDPR</a>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Canada - General -->
+            <div class="compliance-item hidden" data-country="Canada" data-industry="General Technology E-commerce Finance">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-red-800">PIPEDA - Personal Information Protection and Electronic Documents Act</h2>
+                            <p class="text-sm text-gray-500 mt-1">Canada | General</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'PIPEDA_Guide')" class="download-btn bg-red-700 text-white px-4 py-2 rounded-lg hover:bg-red-800 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Name and Scope <span class="text-red-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-red-200">
+                                <p><strong>Name:</strong> Personal Information Protection and Electronic Documents Act (PIPEDA)</p>
+                                <p><strong>Scope:</strong> Applies to private-sector organizations across Canada that collect, use, or disclose personal information in the course of commercial activities. Some provinces have their own substantially similar privacy laws, in which case those laws apply instead of PIPEDA for intra-provincial transactions.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-red-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-red-200">
+                                <p>PIPEDA is Canada's federal privacy law for the private sector. It is based on 10 fair information principles that govern the collection, use, and disclosure of personal information. It also gives individuals the right to access their personal information and challenge its accuracy.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Brazil - General -->
+            <div class="compliance-item hidden" data-country="Brazil" data-industry="General Technology E-commerce Finance">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-green-800">LGPD - Lei Geral de Proteção de Dados</h2>
+                            <p class="text-sm text-gray-500 mt-1">Brazil | General</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'LGPD_Guide')" class="download-btn bg-green-700 text-white px-4 py-2 rounded-lg hover:bg-green-800 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-green-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-green-200">
+                                <p>Brazil's General Data Protection Law (Lei Geral de Proteção de Dados or LGPD) is very similar in structure and scope to the EU's GDPR. It creates a new legal framework for the use of personal data in Brazil, both online and offline, in the private and public sectors. It applies to any individual or organization that processes the personal data of individuals in Brazil, regardless of where the processor is located. It establishes data subject rights, legal bases for processing, and requires the appointment of a Data Protection Officer (DPO).</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Australia - Finance -->
+            <div class="compliance-item hidden" data-country="Australia" data-industry="Finance">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-yellow-800">APRA CPS 234 - Information Security</h2>
+                            <p class="text-sm text-gray-500 mt-1">Australia | Finance</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'CPS234_Guide')" class="download-btn bg-yellow-700 text-white px-4 py-2 rounded-lg hover:bg-yellow-800 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-yellow-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-yellow-200">
+                                <p>Prudential Standard CPS 234 from the Australian Prudential Regulation Authority (APRA) is designed to ensure that an APRA-regulated entity takes measures to be resilient against information security incidents (including cyber-attacks). It requires entities to maintain an information security capability commensurate with the size and extent of threats to their information assets, and to enable the continued sound operation of the entity. It applies to banks, insurers, and superannuation funds.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- Australia - Technology/General -->
+            <div class="compliance-item hidden" data-country="Australia" data-industry="General Technology Finance">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-blue-900">ASD Essential Eight</h2>
+                            <p class="text-sm text-gray-500 mt-1">Australia | General / Technology</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'ASD_Essential_Eight_Guide')" class="download-btn bg-blue-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-blue-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-blue-300">
+                                <p>The Essential Eight is a series of baseline mitigation strategies recommended by the Australian Signals Directorate (ASD) to help organizations protect their systems against a range of cyber threats. While not a law, it is a widely adopted security baseline for Australian government agencies and many private sector companies.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">The Eight Strategies <span class="text-blue-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-blue-300">
+                                <p>The strategies are grouped into preventing malware delivery, limiting the extent of incidents, and recovering data.</p>
+                                <ol class="list-decimal list-inside ml-4 space-y-2">
+                                    <li><strong>Application control:</strong> Prevent execution of unapproved/malicious programs.</li>
+                                    <li><strong>Patch applications:</strong> Remediate security vulnerabilities in applications.</li>
+                                    <li><strong>Configure Microsoft Office macro settings:</strong> Block macros from the internet.</li>
+                                    <li><strong>User application hardening:</strong> Configure web browsers and other applications to block or limit potentially harmful content.</li>
+                                    <li><strong>Restrict administrative privileges:</strong> Limit powerful access to operating systems and applications.</li>
+                                    <li><strong>Patch operating systems:</strong> Remediate security vulnerabilities in operating systems.</li>
+                                    <li><strong>Multi-factor authentication:</strong> Protect against risky activities and access to sensitive data.</li>
+                                    <li><strong>Regular backups:</strong> Ensure data can be recovered in the event of a cyber incident.</li>
+                                </ol>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global - E-commerce/Finance -->
+            <div class="compliance-item hidden" data-country="Global" data-industry="E-commerce Finance">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-sky-700">PCI DSS - Payment Card Industry Data Security Standard</h2>
+                            <p class="text-sm text-gray-500 mt-1">Global | E-commerce & Finance</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'PCIDSS_Compliance_Guide')" class="download-btn bg-sky-600 text-white px-4 py-2 rounded-lg hover:bg-sky-700 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Name and Scope <span class="text-sky-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-sky-200">
+                                <p><strong>Name:</strong> Payment Card Industry Data Security Standard (PCI DSS)</p>
+                                <p><strong>Scope:</strong> Applies to all entities involved in payment card processing – including merchants of all sizes, financial institutions, and any other organization that stores, processes, or transmits <span class="tooltip">cardholder data<span class="tooltiptext">The primary account number (PAN) and may also include cardholder name, expiration date, and/or service code.</span></span>.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-sky-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-sky-200">
+                                <p>PCI DSS is an information security standard for organizations that handle branded credit cards from the major card schemes. It is mandated by the card brands and administered by the Payment Card Industry Security Standards Council. The standard was created to increase controls around cardholder data to reduce credit card fraud.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">The 12 Core Requirements <span class="text-sky-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-sky-200 space-y-3">
+                                <p><strong>Goal 1: Build and Maintain a Secure Network and Systems</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Req 1: Install and maintain firewall and router configurations.</li>
+                                    <li>Req 2: Do not use vendor-supplied defaults for system passwords and other security parameters.</li>
+                                </ul>
+                                <p><strong>Goal 2: Protect Cardholder Data</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Req 3: Protect stored cardholder data.</li>
+                                    <li>Req 4: Encrypt transmission of cardholder data across open, public networks.</li>
+                                </ul>
+                                <p><strong>Goal 3: Maintain a Vulnerability Management Program</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Req 5: Protect all systems against malware and regularly update anti-virus software.</li>
+                                    <li>Req 6: Develop and maintain secure systems and applications.</li>
+                                </ul>
+                                <p><strong>Goal 4: Implement Strong Access Control Measures</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Req 7: Restrict access to cardholder data by business need-to-know.</li>
+                                    <li>Req 8: Identify and authenticate access to system components.</li>
+                                    <li>Req 9: Restrict physical access to cardholder data.</li>
+                                </ul>
+                                <p><strong>Goal 5: Regularly Monitor and Test Networks</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Req 10: Track and monitor all access to network resources and cardholder data.</li>
+                                    <li>Req 11: Regularly test security systems and processes.</li>
+                                </ul>
+                                <p><strong>Goal 6: Maintain an Information Security Policy</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Req 12: Maintain a policy that addresses information security for all personnel.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Procedures for Compliance <span class="text-sky-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-sky-200">
+                                <ol class="list-decimal list-inside space-y-2">
+                                    <li><strong>Determine Scope:</strong> Identify all system components, people, and processes included in or connected to the cardholder data environment (CDE).</li>
+                                    <li><strong>Assess:</strong> Perform an assessment against the PCI DSS requirements. This can involve completing a Self-Assessment Questionnaire (SAQ) or a formal Report on Compliance (ROC).</li>
+                                    <li><strong>Remediate:</strong> Fix any identified vulnerabilities or gaps in security controls.</li>
+                                    <li><strong>Report:</strong> Submit the required compliance documentation (SAQ or ROC, along with an Attestation of Compliance) to your acquiring bank and the card brands.</li>
+                                </ol>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Penalties for Non-Compliance <span class="text-sky-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-sky-200">
+                                <p>Penalties are not directly levied by the PCI Council. Instead, acquiring banks may impose fines on non-compliant merchants, which can range from $5,000 to $100,000 per month. In the event of a breach, fines can be much higher, and the merchant may be held liable for forensic investigation costs, card re-issuance fees, and may lose the ability to accept card payments.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Useful Resources <span class="text-sky-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-sky-200">
+                                <a href="https://www.pcisecuritystandards.org/" target="_blank" class="text-sky-600 hover:underline">Official PCI Security Standards Council Website</a>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- India - General/Technology -->
+            <div class="compliance-item hidden" data-country="India" data-industry="General Technology">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-orange-700">DPDP Act - Digital Personal Data Protection Act, 2023</h2>
+                            <p class="text-sm text-gray-500 mt-1">India | General & Technology</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'DPDP_Act_Guide')" class="download-btn bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Name and Scope <span class="text-orange-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-orange-200">
+                               <p><strong>Name:</strong> Digital Personal Data Protection (DPDP) Act, 2023</p>
+                               <p><strong>Scope:</strong> Applies to the processing of digital personal data within India. It also has extraterritorial reach if the processing is in connection with any activity related to offering goods or services to individuals (Data Principals) in India.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-orange-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-orange-200">
+                                <p>The DPDP Act is India's primary data protection legislation. It establishes a framework for the lawful processing of personal data, recognizes the rights of individuals to protect their data, and creates the Data Protection Board of India for enforcement.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Key Controls & Requirements <span class="text-orange-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-orange-200 space-y-3">
+                                <p><strong>Consent-Based Framework:</strong> Processing of personal data must be done for a lawful purpose upon obtaining clear and specific consent from the Data Principal.</p>
+                                <p><strong>Notice Requirement:</strong> Before or at the time of requesting consent, a notice must be provided detailing the data to be collected and the purpose of processing.</p>
+                                <p><strong>Data Fiduciary Obligations:</strong> The entity determining the purpose and means of processing (Data Fiduciary) is responsible for compliance. This includes implementing security safeguards and notifying the Board and affected individuals of breaches.</p>
+                                <p><strong>Rights of Data Principals:</strong> Includes the right to access information, correct or erase data, and grievance redressal.</p>
+                                <p><strong>Significant Data Fiduciaries (SDFs):</strong> The government can designate certain entities as SDFs based on the volume and sensitivity of data processed. SDFs have additional obligations, like appointing a Data Protection Officer (DPO).</p>
+                            </div>
+                        </details>
+                        <details>
+                             <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Penalties for Non-Compliance <span class="text-orange-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-orange-200">
+                                <p>The Act specifies significant financial penalties for non-compliance, which can extend up to ₹250 crore (approx. $30 million USD) for a single instance of a data breach.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Useful Resources <span class="text-orange-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-orange-200">
+                                <a href="https://www.meity.gov.in/content/digital-personal-data-protection-act-2023" target="_blank" class="text-orange-600 hover:underline">Official MeitY Page for DPDP Act</a>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Japan - Technology/General -->
+            <div class="compliance-item hidden" data-country="Japan" data-industry="General Technology Finance">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-red-900">APPI - Act on the Protection of Personal Information</h2>
+                            <p class="text-sm text-gray-500 mt-1">Japan | General / Technology</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'APPI_Guide')" class="download-btn bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-900 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-red-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-red-300">
+                                <p>The Act on the Protection of Personal Information (APPI) is Japan's primary data protection law. It governs how private sector businesses must handle personal information. The law has extraterritorial reach, applying to businesses outside Japan if they handle the personal information of individuals in Japan in connection with supplying goods or services.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Key Requirements <span class="text-red-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-red-300">
+                                <ul class="list-disc list-inside ml-4 space-y-2">
+                                    <li><strong>Purpose Specification:</strong> Businesses must specify the purpose of use of personal information as concretely as possible.</li>
+                                    <li><strong>Consent for Third-Party Transfer:</strong> In principle, a business must obtain the data subject's prior consent when providing their personal data to a third party. This is especially strict for cross-border transfers.</li>
+                                    <li><strong>Data Security:</strong> Businesses must take necessary and appropriate security control measures to prevent the leakage, loss, or damage of personal data.</li>
+                                    <li><strong>Data Subject Rights:</strong> Individuals have the right to request disclosure, correction, and cessation of use of their personal data.</li>
+                                    <li><strong>Breach Notification:</strong> Mandatory notification to the Personal Information Protection Commission (PPC) and affected individuals for certain types of data breaches.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Global - Technology/Finance -->
+            <div class="compliance-item hidden" data-country="Global" data-industry="General Technology Finance">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-purple-700">ITGC - IT General Controls</h2>
+                            <p class="text-sm text-gray-500 mt-1">Global | General / Technology / Finance</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'ITGC_Guide')" class="download-btn bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-purple-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-purple-200">
+                                <p>IT General Controls (ITGCs) are not a standalone regulation but a foundational component of many compliance frameworks (like SOX, GDPR, HIPAA) and security standards (like ISO 27001). They are the basic controls that can be applied to IT systems such as applications, operating systems, and databases to ensure the integrity of the data and processes they support.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Key Control Domains <span class="text-purple-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-purple-200 space-y-3">
+                                <p><strong>1. Logical Access Controls:</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Ensuring only authorized individuals can access systems, data, and applications.</li>
+                                    <li>Includes user authentication (passwords, MFA), authorization (permissions), and regular access reviews.</li>
+                                </ul>
+                                <p><strong>2. Change Management:</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Ensuring that changes to systems are properly authorized, tested, and implemented to prevent unauthorized changes and disruptions.</li>
+                                    <li>Includes processes for requesting, testing, approving, and deploying changes.</li>
+                                </ul>
+                                <p><strong>3. System Development Life Cycle (SDLC):</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Controls over the process of developing and acquiring new systems and software to ensure they meet business requirements and are free from defects.</li>
+                                </ul>
+                                <p><strong>4. Computer Operations:</strong></p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li>Controls to ensure that production systems are processed correctly and that data is protected.</li>
+                                    <li>Includes system monitoring, data backup and recovery procedures, and incident management.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Relationship to Other Frameworks <span class="text-purple-500 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                             <div class="mt-2 pl-4 text-gray-700 border-l-2 border-purple-200">
+                                <p>ITGCs provide the foundation upon which other controls operate. For example:</p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li><strong>SOX:</strong> ITGCs are critical for protecting the integrity of financial reporting systems and data, directly supporting Section 302 and 404 compliance.</li>
+                                    <li><strong>GDPR/HIPAA:</strong> Strong access and change management controls are essential to prevent unauthorized access to or alteration of sensitive personal or health data.</li>
+                                    <li><strong>ISO 27001:</strong> Many ITGC domains map directly to controls listed in ISO 27001's Annex A.</li>
+                                </ul>
+                                <p class="mt-2">If ITGCs fail, there is little assurance that application controls or data-level controls are effective.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global - ISO 27001 -->
+            <div class="compliance-item hidden" data-country="Global" data-industry="General Technology Finance Healthcare E-commerce Telecom Manufacturing Education">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">ISO/IEC 27001 - Information Security Management</h2>
+                            <p class="text-sm text-gray-500 mt-1">Global | General / Technology / Finance / Healthcare</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'ISO27001_Guide')" class="download-btn bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Name and Scope <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300">
+                                <p><strong>Name:</strong> ISO/IEC 27001</p>
+                                <p><strong>Scope:</strong> An international standard for establishing, implementing, maintaining, and continually improving an <span class="tooltip">Information Security Management System (ISMS)<span class="tooltiptext">A systematic approach to managing sensitive company information so that it remains secure. It includes people, processes and IT systems by applying a risk management process.</span></span>. It is applicable to any organization, regardless of size, type, or industry.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300">
+                                <p>ISO 27001 provides a comprehensive framework to help organizations manage and protect their information assets. It ensures the confidentiality, integrity, and availability of information by applying a risk management process. Achieving accredited certification to ISO 27001 demonstrates that the company is following information security best practices and provides a competitive advantage.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Key Controls & Requirements <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300 space-y-3">
+                                <p>The standard is structured around mandatory clauses for the ISMS and a set of controls in Annex A, all following the <strong>Plan-Do-Check-Act (PDCA)</strong> cycle.</p>
+                                <p><strong>Mandatory Clauses (4-10):</strong> These require organizations to:</p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li><strong>(Plan)</strong> Define the context, leadership commitment, and plan the ISMS, including a risk assessment and a Statement of Applicability (SoA).</li>
+                                    <li><strong>(Do)</strong> Provide support, resources, and operate the ISMS by implementing the selected controls.</li>
+                                    <li><strong>(Check)</strong> Monitor, measure, analyze, and evaluate the ISMS performance through internal audits and management reviews.</li>
+                                    <li><strong>(Act)</strong> Address nonconformities and continually improve the ISMS.</li>
+                                </ul>
+                                <p><strong>Annex A Controls:</strong> A list of 93 security controls in 4 domains. Organizations select controls based on their risk assessment.</p>
+                                <ul class="list-disc list-inside ml-4">
+                                    <li><strong>A.5 Organizational Controls:</strong> (e.g., Information security policies, roles and responsibilities, segregation of duties).</li>
+                                    <li><strong>A.6 People Controls:</strong> (e.g., Security awareness training, remote working policies, disciplinary process).</li>
+                                    <li><strong>A.7 Physical Controls:</strong> (e.g., Secure areas, clear desk and clear screen policy, security of equipment).</li>
+                                    <li><strong>A.8 Technological Controls:</strong> (e.g., Access control, cryptography, network security, secure coding, backup).</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global - ISO 9001 -->
+            <div class="compliance-item hidden" data-country="Global" data-industry="General Manufacturing Technology Education">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">ISO 9001 - Quality Management Systems</h2>
+                            <p class="text-sm text-gray-500 mt-1">Global | General / Manufacturing / Technology</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'ISO9001_Guide')" class="download-btn bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Name and Scope <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300">
+                                <p><strong>Name:</strong> ISO 9001</p>
+                                <p><strong>Scope:</strong> The international standard for a <span class="tooltip">Quality Management System (QMS)<span class="tooltiptext">A formalized system that documents processes, procedures, and responsibilities for achieving quality policies and objectives.</span></span>. It can be used by any organization, large or small, regardless of its field of activity.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">Overview <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300">
+                                <p>ISO 9001 provides a framework and set of principles that ensure a common-sense approach to the management of your organization to consistently satisfy customers and other stakeholders. In simple terms, it provides the basis for effective processes and effective people to deliver an effective product or service time after time.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">The 7 Quality Management Principles <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300">
+                                <ol class="list-decimal list-inside ml-4">
+                                    <li><strong>Customer Focus:</strong> Understand and meet customer needs and strive to exceed their expectations.</li>
+                                    <li><strong>Leadership:</strong> Top management establishes unity of purpose and direction and creates conditions in which people are engaged in achieving the quality objectives.</li>
+                                    <li><strong>Engagement of People:</strong> Competent, empowered, and engaged people at all levels are essential to enhance the organization's capability to create and deliver value.</li>
+                                    <li><strong>Process Approach:</strong> Consistent and predictable results are achieved more effectively and efficiently when activities are understood and managed as interrelated processes that function as a coherent system.</li>
+                                    <li><strong>Improvement:</strong> Successful organizations have an ongoing focus on improvement.</li>
+                                    <li><strong>Evidence-based Decision Making:</strong> Decisions based on the analysis and evaluation of data and information are more likely to produce desired results.</li>
+                                    <li><strong>Relationship Management:</strong> For sustained success, an organization manages its relationships with interested parties, such as suppliers.</li>
+                                </ol>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global - Other ISO Standards -->
+            <div class="compliance-item hidden" data-country="Global" data-industry="General Manufacturing Healthcare Technology">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold text-gray-800">Other Key ISO Standards</h2>
+                            <p class="text-sm text-gray-500 mt-1">Global | Various Industries</p>
+                        </div>
+                        <button onclick="downloadPDF(this, 'Other_ISO_Standards_Guide')" class="download-btn bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition flex items-center gap-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                            <span class="btn-text">PDF</span>
+                            <div class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-4">
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">ISO/IEC 14001 - Environmental Management <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300">
+                                <p>Provides a framework for an effective Environmental Management System (EMS). It helps organizations improve their environmental performance through more efficient use of resources and reduction of waste, gaining a competitive advantage and the trust of stakeholders.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">ISO 45001 - Occupational Health & Safety <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300">
+                                <p>Specifies requirements for an occupational health and safety (OH&S) management system, and gives guidance for its use, to enable organizations to provide safe and healthy workplaces by preventing work-related injury and ill health.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">ISO 22301 - Business Continuity Management <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300">
+                                <p>A management system standard for Business Continuity Management (BCM) that helps organizations protect against, reduce the likelihood of, and ensure their business recovers from disruptive incidents.</p>
+                            </div>
+                        </details>
+                        <details>
+                            <summary class="font-semibold text-lg cursor-pointer flex justify-between items-center">ISO/IEC 27701 - Privacy Information Management <span class="text-gray-600 text-2xl transform transition-transform duration-200 open:rotate-45">+</span></summary>
+                            <div class="mt-2 pl-4 text-gray-700 border-l-2 border-gray-300">
+                                <p>An extension to ISO 27001, this standard provides guidance for establishing, implementing, maintaining, and continually improving a Privacy Information Management System (PIMS). It helps demonstrate compliance with data protection regulations like GDPR.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparison Section -->
+            <div class="compliance-item hidden" data-country="Global" data-industry="General Technology">
+                <div class="bg-white p-6 md:p-8 rounded-xl shadow-md">
+                    <h2 class="text-2xl font-bold text-gray-800">Framework Comparisons</h2>
+                    <hr class="my-4">
+                    <div class="space-y-6">
+                        <!-- GDPR vs CCPA -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3">GDPR vs. CCPA (CPRA)</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr class="bg-gray-100">
+                                            <th class="p-3 font-semibold border-b">Feature</th>
+                                            <th class="p-3 font-semibold border-b">GDPR (EU)</th>
+                                            <th class="p-3 font-semibold border-b">CCPA/CPRA (California, USA)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b">
+                                            <td class="p-3 font-medium">Primary Scope</td>
+                                            <td class="p-3">Data of EU residents ("Data Subjects")</td>
+                                            <td class="p-3">Data of California residents ("Consumers")</td>
+                                        </tr>
+                                        <tr class="border-b bg-gray-50">
+                                            <td class="p-3 font-medium">Legal Basis</td>
+                                            <td class="p-3">Requires a specific lawful basis (e.g., consent, contract)</td>
+                                            <td class="p-3">Allows data collection by default, with an opt-out for "sale" or "sharing" of data</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="p-3 font-medium">"Personal Data" Definition</td>
+                                            <td class="p-3">Very broad, any information relating to an identifiable person</td>
+                                            <td class="p-3">Broad, information that identifies, relates to, or could be linked with a consumer or household</td>
+                                        </tr>
+                                        <tr class="border-b bg-gray-50">
+                                            <td class="p-3 font-medium">Core Right</td>
+                                            <td class="p-3">Opt-in consent model</td>
+                                            <td class="p-3">Opt-out model for data sale/sharing</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- ISO 27001 vs NIST -->
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3">ISO 27001 vs. NIST Cybersecurity Framework</h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left border-collapse">
+                                    <thead>
+                                        <tr class="bg-gray-100">
+                                            <th class="p-3 font-semibold border-b">Feature</th>
+                                            <th class="p-3 font-semibold border-b">ISO/IEC 27001</th>
+                                            <th class="p-3 font-semibold border-b">NIST Cybersecurity Framework (CSF)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b">
+                                            <td class="p-3 font-medium">Approach</td>
+                                            <td class="p-3">Prescriptive, risk-based standard for an Information Security Management System (ISMS)</td>
+                                            <td class="p-3">Descriptive, flexible framework to manage and reduce cybersecurity risk</td>
+                                        </tr>
+                                        <tr class="border-b bg-gray-50">
+                                            <td class="p-3 font-medium">Certification</td>
+                                            <td class="p-3">Formal, internationally recognized certification is possible</td>
+                                            <td class="p-3">No formal certification; it's a voluntary guidance framework</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="p-3 font-medium">Structure</td>
+                                            <td class="p-3">Mandatory clauses and a set of controls in Annex A</td>
+                                            <td class="p-3">Organized around five core functions: Identify, Protect, Detect, Respond, Recover</td>
+                                        </tr>
+                                        <tr class="border-b bg-gray-50">
+                                            <td class="p-3 font-medium">Primary Audience</td>
+                                            <td class="p-3">Global organizations of any size seeking to certify their ISMS</td>
+                                            <td class="p-3">Primarily U.S. critical infrastructure, but widely adopted globally as a best practice</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        const countrySelect = document.getElementById('country-select');
+        const industrySelect = document.getElementById('industry-select');
+        const complianceItems = document.querySelectorAll('.compliance-item');
+        const messageBox = document.getElementById('message-box');
+        const noResultsBox = document.getElementById('no-results-box');
+
+        function filterCompliance() {
+            const selectedCountry = countrySelect.value;
+            const selectedIndustry = industrySelect.value;
+            let itemsFound = 0;
+
+            if (!selectedCountry || !selectedIndustry) {
+                messageBox.classList.remove('hidden');
+                noResultsBox.classList.add('hidden');
+                complianceItems.forEach(item => item.classList.add('hidden'));
+                return;
+            }
+
+            messageBox.classList.add('hidden');
+            
+            complianceItems.forEach(item => {
+                const itemCountry = item.dataset.country;
+                const itemIndustries = item.dataset.industry.split(' ');
+                
+                const countryMatch = itemCountry === selectedCountry || itemCountry === 'Global';
+                const industryMatch = itemIndustries.includes(selectedIndustry) || itemIndustries.includes('General');
+
+                if (countryMatch && industryMatch) {
+                    item.classList.remove('hidden');
+                    itemsFound++;
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+
+            if (itemsFound === 0) {
+                noResultsBox.classList.remove('hidden');
+            } else {
+                noResultsBox.classList.add('hidden');
+            }
+        }
+
+        countrySelect.addEventListener('change', filterCompliance);
+        industrySelect.addEventListener('change', filterCompliance);
+
+        // Initial check
+        filterCompliance();
+
+        // PDF Download Functionality
+        async function downloadPDF(button, filename) {
+            const btnText = button.querySelector('.btn-text');
+            const loader = button.querySelector('.loader');
+            
+            btnText.classList.add('hidden');
+            loader.classList.remove('hidden');
+            button.disabled = true;
+
+            const contentToCapture = button.closest('.compliance-item > div');
+            
+            // Temporarily open all details to capture full content
+            const detailsElements = contentToCapture.querySelectorAll('details');
+            detailsElements.forEach(d => d.open = true);
+
+            try {
+                const canvas = await html2canvas(contentToCapture, {
+                    scale: 2, // Improve quality
+                    useCORS: true,
+                    logging: false,
+                    onclone: (document) => {
+                        // In the cloned document, remove the download button to prevent it from appearing in the PDF
+                        const clonedButton = document.querySelector(`[onclick="downloadPDF(this, '${filename}')"]`);
+                        if(clonedButton) {
+                            clonedButton.style.display = 'none';
+                        }
+                    }
+                });
+                
+                const imgData = canvas.toDataURL('image/png');
+                
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                    orientation: 'p',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = pdf.internal.pageSize.getHeight();
+                const canvasWidth = canvas.width;
+                const canvasHeight = canvas.height;
+                const ratio = canvasWidth / canvasHeight;
+
+                const imgWidth = pdfWidth - 20; // with margin
+                const imgHeight = imgWidth / ratio;
+                
+                let heightLeft = imgHeight;
+                let position = 10; // top margin
+
+                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                heightLeft -= (pdfHeight - 20);
+
+                while (heightLeft > 0) {
+                    position = -heightLeft + 10;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                    heightLeft -= (pdfHeight - 20);
+                }
+                
+                pdf.save(`${filename}.pdf`);
+
+            } catch (error) {
+                console.error("Error generating PDF:", error);
+                alert("Sorry, there was an error creating the PDF. Please try again.");
+            } finally {
+                // Restore details state
+                detailsElements.forEach(d => d.open = false);
+                btnText.classList.remove('hidden');
+                loader.classList.add('hidden');
+                button.disabled = false;
+            }
+        }
+        
+        // Handle details toggle animation
+        document.querySelectorAll('details').forEach((detail) => {
+            detail.addEventListener('toggle', (event) => {
+                const summary = detail.querySelector('summary');
+                const icon = summary.querySelector('span');
+                if (detail.open) {
+                    icon.classList.add('rotate-45');
+                } else {
+                    icon.classList.remove('rotate-45');
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
